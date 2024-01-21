@@ -1,8 +1,6 @@
 pipeline {
   agent {
-    docker {
-      image 'uladzimirzel/build-boxfuse:1.0.1'
-    }
+    docker { image 'uladzimirzel/build-boxfuse:1.0.1' }
   }
 
   stages {
