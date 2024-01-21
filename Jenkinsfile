@@ -1,14 +1,14 @@
 pipeline {
   agent {
     docker {
-      image 'devcvs-srv01:5000/shop2-backend/jenkins-agent'
+      image 'uladzimirzel/test:v1.0.0'
     }
   }
 
   stages {
     stage ('git'){
         steps {
-            sh 'git clone '
+            sh 'git clone https://github.com/uladzimirzel/lesson11-boxfuse.git'
         }
     }
   }
