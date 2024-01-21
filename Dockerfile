@@ -1,4 +1,4 @@
-FROM 34.118.63.122:8080/alpine:latest
+FROM 34.118.63.122:8081/alpine:latest
 
 RUN apk update && \
     apk add maven && \
