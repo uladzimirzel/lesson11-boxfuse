@@ -3,8 +3,8 @@ pipeline {
   stages {
     stage ('git clone'){
         steps {
-          sh 'rm -rf /lesson11-boxfuse'
-          sh 'git clone https://github.com/uladzimirzel/lesson11-boxfuse.git'
+            sh 'rm -rf /lesson11-boxfuse'
+            sh 'git clone https://github.com/uladzimirzel/lesson11-boxfuse.git'
         }
     }
     stage ('build'){
