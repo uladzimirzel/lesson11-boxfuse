@@ -10,7 +10,7 @@ pipeline {
     stage ('build'){
         steps {
             sh 'cd lesson11-boxfuse'
-            sh 'docker build -t boxfuse-in-docker:1.0.0 .'
+            sh 'docker build -t boxfuse-in-docker:$version .'
         }
     }
     stage ('push to nexus'){
@@ -18,8 +18,8 @@ pipeline {
             withCredentials([usernamePassword(credentialsId: '06b76f10-13f1-43e0-ba96-d41a82c2d527', passwordVariable: 'password', usernameVariable: 'login')]) {
             sh 'docker login 34.116.254.166:8083 -u $login -p $password'
             }
-            sh 'docker tag boxfuse-in-docker:1.0.0 34.116.254.166:8083/boxfuse-in-docker:1.0.0'
-            sh 'docker push 34.116.254.166:8083/boxfuse-in-docker:1.0.0'
+            sh 'docker tag boxfuse-in-docker:$version 34.116.254.166:8083/boxfuse-in-docker:$version'
+            sh 'docker push 34.116.254.166:8083/boxfuse-in-docker:$version'
         }
     }
   }
