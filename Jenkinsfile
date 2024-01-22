@@ -13,5 +13,11 @@ pipeline {
             sh 'docker build -t boxfuse-in-docker:1.0.0 .'
         }
     }
+    stage ('push to nexus'){
+        steps {
+            sh 'docker tag boxfuse-in-docker:1.0.0 34.116.254.166:8083/boxfuse-in-docker:1.0.0'
+            sh 'docker push 34.116.254.166:8083/boxfuse-in-docker:1.0.0'
+        }
+    }
   }
 }
