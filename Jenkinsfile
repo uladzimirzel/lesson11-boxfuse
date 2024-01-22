@@ -15,9 +15,10 @@ pipeline {
     }
     stage ('push to nexus'){
         steps {
-            withCredentials([usernameColonPassword(credentialsId: '98944de0-08aa-431c-99df-f21297ee29ee', variable: 'creds')])
+            withCredentials([usernameColonPassword(credentialsId: '98944de0-08aa-431c-99df-f21297ee29ee', variable: 'creds')]) {
             sh 'docker tag boxfuse-in-docker:1.0.0 34.116.254.166:8083/boxfuse-in-docker:1.0.0'
             sh 'docker push 34.116.254.166:8083/boxfuse-in-docker:1.0.0'
+          }     
         }
     }
   }
