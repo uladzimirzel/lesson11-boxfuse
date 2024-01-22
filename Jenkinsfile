@@ -1,19 +1,22 @@
 pipeline {
-  agent any
+  agent none
   stages {
     stage ('git clone'){
+        agent {'building'}
         steps {
             sh 'rm -rf lesson11-boxfuse'
             sh 'git clone https://github.com/uladzimirzel/lesson11-boxfuse.git'
         }
     }
     stage ('build'){
+        agent {'building'}
         steps {
             sh 'cd lesson11-boxfuse'
             sh 'docker build -t boxfuse-in-docker:$version .'
         }
     }
     stage ('push to nexus'){
+        agent {'building'}
         steps {
             withCredentials([usernamePassword(credentialsId: '06b76f10-13f1-43e0-ba96-d41a82c2d527', passwordVariable: 'password', usernameVariable: 'login')]) {
             sh 'docker login 34.116.254.166:8083 -u $login -p $password'
