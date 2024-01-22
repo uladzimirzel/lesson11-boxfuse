@@ -22,5 +22,18 @@ pipeline {
             sh 'docker push 34.116.254.166:8083/boxfuse-in-docker:$version'
         }
     }
+    stage ('git clone prod'){
+        steps {
+            sh 'rm -rf lesson11-docker-prod'
+            sh 'git clone https://github.com/uladzimirzel/lesson11-docker-prod'
+        }
+    }
+    stage ('push to prod'){
+        steps {
+            sh 'cd lesson11-docker-prod'
+            sh 'docker build -t lesson11-docker-prod'
+            sh 'docker run -d -p 8080:8080 lesson11-docker-prod'
+        }
+    }
   }
 }
