@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage ('build'){
         steps {
-            sh 'docker build -t boxfuse-in-docker:1.0.0 /var/jenkins_home/workspace/newpipe/build-boxfuse'
+            sh 'docker build -t boxfuse-in-docker:1.0.0 /var/jenkins_home/workspace/newpipe/build-boxfuse:1.0.0'
         }
     }
   }
