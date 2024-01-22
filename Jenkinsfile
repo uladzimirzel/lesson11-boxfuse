@@ -1,9 +1,7 @@
 pipeline {
   agent {
-    docker { 
-      label 'test'
+    label { 'test' }
   }
-
   stages {
     stage ('git'){
         steps {
