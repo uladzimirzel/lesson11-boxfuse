@@ -9,7 +9,7 @@ pipeline {
     }
     stage ('build'){
         steps {
-            sh 'cd /var/jenkins_home/workspace/newpipe/lesson11-boxfuse'
+            sh 'cd lesson11-boxfuse'
             sh 'docker build -t boxfuse-in-docker:1.0.0 .'
         }
     }
