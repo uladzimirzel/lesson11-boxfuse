@@ -7,7 +7,3 @@ RUN apt-get update && apt-get install -y docker-ce docker-ce-cli containerd.io
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello /root/boxfuse-sample-java-war-hello
 WORKDIR /root/boxfuse-sample-java-war-hello
 RUN mvn clean package
-
-FROM tomcat:9.0-alpine
-WORKDIR /usr/local/tomcat/
-COPY --from=build /root/boxfuse-sample-java-war-hello /usr/local/tomcat/webapps
