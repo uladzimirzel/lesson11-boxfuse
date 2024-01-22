@@ -4,9 +4,15 @@ pipeline {
   }
 
   stages {
+    stage ('git clone'){
+        steps {
+            sh 'git clone https://github.com/uladzimirzel/lesson11-boxfuse.git'
+        }
+    }
     stage ('build'){
         steps {
-            sh 'docker build -t boxfuse-in-docker:1.0.0 /var/jenkins_home/workspace/newpipe/build-boxfuse:1.0.0'
+            sh 'cd /var/jenkins_home/workspace/newpipe/build-boxfuse'
+            sh 'docker build -t boxfuse-in-docker:1.0.0'
         }
     }
   }
