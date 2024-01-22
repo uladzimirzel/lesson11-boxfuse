@@ -32,7 +32,6 @@ pipeline {
         steps {
             sh 'cd lesson11-docker-prod'
             sh 'docker build -t lesson11-docker-prod .'
-            sh 'docker run -d -p 8120:8120 lesson11-docker-prod:latest'
             script {
                     def remoteMachine = "root@34.116.207.80"
                     sshCommand remote: remoteMachine, command: "docker pull 34.116.254.166:8083/boxfuse-in-docker:1.0.1"
