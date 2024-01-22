@@ -1,16 +1,21 @@
 pipeline {
   agent any
   stages {
-    stage ('git clone'){
+    stage ('git clone build'){
         steps {
             sh 'rm -rf lesson11-boxfuse'
             sh 'git clone https://github.com/uladzimirzel/lesson11-boxfuse.git'
         }
     }
+    stage ('git clone prod'){
+        steps {
+            sh 'rm -rf lesson11-docker-prod'
+            sh 'https://github.com/uladzimirzel/lesson11-docker-prod'
+        }
+    }
     stage ('build'){
         steps {
-            sh 'cd lesson11-boxfuse'
-            sh 'docker build -t boxfuse-in-docker:$version .'
+            sh 'docker build -f /lesson11-docker-prod boxfuse-in-docker:$version .'
         }
     }
     stage ('push to nexus'){
@@ -20,12 +25,6 @@ pipeline {
             }
             sh 'docker tag boxfuse-in-docker:$version 34.116.254.166:8083/boxfuse-in-docker:$version'
             sh 'docker push 34.116.254.166:8083/boxfuse-in-docker:$version'
-        }
-    }
-    stage ('git clone prod'){
-        steps {
-            sh 'rm -rf lesson11-docker-prod'
-            sh 'git clone https://github.com/uladzimirzel/lesson11-docker-prod'
         }
     }
     stage ('deploy prod'){
