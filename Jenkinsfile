@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage ('git'){
         steps {
-            sh 'git clone https://github.com/uladzimirzel/lesson11-boxfuse.git'
+            sh 'docker run -v /var/run/docker.sock:/var/run/docker.sock -ti docker'
         }
     }
   }
