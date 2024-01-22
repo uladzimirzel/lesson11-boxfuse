@@ -1,7 +1,9 @@
 pipeline {
   agent {
-    label { 'test' }
+    docker { 
+      image 'uladzimirzel/build-boxfuse:1.0.0' }
   }
+
   stages {
     stage ('git'){
         steps {
