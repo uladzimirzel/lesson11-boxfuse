@@ -32,7 +32,7 @@ pipeline {
         steps {
             sh 'cd lesson11-docker-prod'
             sh 'docker build -t lesson11-docker-prod .'
-            sh 'docker run -d -p 8080:8080 lesson11-docker-prod:latest'
+            sh 'docker run -d -p 8080:8085 lesson11-docker-prod:latest'
         }
     }
   }
