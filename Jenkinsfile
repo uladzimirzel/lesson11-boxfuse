@@ -6,6 +6,7 @@ pipeline {
   stages {
     stage ('git clone'){
         steps {
+          sh 'rm -rf /var/jenkins_home/workspace/newpipe/build-boxfuse'
             sh 'git clone https://github.com/uladzimirzel/lesson11-boxfuse.git'
         }
     }
