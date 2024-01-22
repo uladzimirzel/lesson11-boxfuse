@@ -15,7 +15,7 @@ pipeline {
     }
     stage ('build'){
         steps {
-            sh 'docker build -f lesson11-docker-prod boxfuse-in-docker:$version .'
+            sh 'docker build -f /lesson11-docker-prod boxfuse-in-docker:$version .'
         }
     }
     stage ('push to nexus'){
