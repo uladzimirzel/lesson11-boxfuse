@@ -1,7 +1,6 @@
 pipeline {
-  agent {
-    docker { image 'uladzimirzel/build-boxfuse:1.0.0' }
-  }
+  
+  agent none
 
   stages {
     stage ('git clone'){
