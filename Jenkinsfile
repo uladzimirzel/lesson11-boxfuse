@@ -10,12 +10,12 @@ pipeline {
     stage ('git clone prod'){
         steps {
             sh 'rm -rf lesson11-docker-prod'
-            sh 'https://github.com/uladzimirzel/lesson11-docker-prod'
+            sh 'https://github.com/uladzimirzel/lesson11-docker-prod.git'
         }
     }
     stage ('build'){
         steps {
-            sh 'docker build -f /lesson11-docker-prod boxfuse-in-docker:$version .'
+            sh 'docker build -f lesson11-docker-prod boxfuse-in-docker:$version .'
         }
     }
     stage ('push to nexus'){
