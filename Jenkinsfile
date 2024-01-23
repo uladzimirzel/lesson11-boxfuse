@@ -10,13 +10,5 @@ pipeline {
                 }
             }
         }
-        stage ('build image') {
-            agent {label 'builder'}
-            steps {
-                dir ('/var/jenkins/workspace/lesson11/lesson11-boxfuse'){
-                  sh 'docker build -t boxfuse:1.0.0 .'
-                }
-            }
-        }
     }
 }
