@@ -1,13 +1,13 @@
 pipeline {
     agent none
     stages {
-        stage ('test') {
+        stage ('test-build') {
             agent {label 'builder'}
             steps {
                 sh 'touch test-builder.txt'
             }
         }
-        stage ('test') {
+        stage ('test-prod') {
             agent {label 'prod'}
             steps {
                 sh 'touch test-prod.txt'
