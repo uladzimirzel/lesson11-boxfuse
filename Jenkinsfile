@@ -8,7 +8,7 @@ pipeline {
                 sh 'git clone https://github.com/uladzimirzel/lesson11-boxfuse.git'
             }
         }
-        stage ('git clone builder') {
+        stage ('build image') {
             agent {label 'builder'}
             steps {
                 sh 'cd /home/jenkins/workspace/lesson11/lesson11-boxfuse' 
