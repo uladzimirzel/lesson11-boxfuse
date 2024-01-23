@@ -4,7 +4,7 @@ pipeline {
         stage ('test') {
             agent {label 'builder'}
             steps {
-                sh 'mkdir /var/TEST!'
+                sh 'sudo mkdir /var/TEST!'
             }
         }
     }
