@@ -15,5 +15,12 @@ pipeline {
                 sh 'sudo docker build -t boxfuse-docker:1.0.0 /home/jenkins/workspace/lesson11/lesson11-boxfuse'
             }
         }
+        stage ('push nexus') {
+            agent {label 'builder'}
+            steps {
+                sh 'sudo docker tag boxfuse-docker:1.0.0 34.118.74.35:8123/boxfuse-docker:1.0.0'
+                sh 'sudo docker push 34.118.74.35:8123/boxfuse-docker:1.0.0'
+            }
+        }
     }
 }
