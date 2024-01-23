@@ -12,7 +12,7 @@ pipeline {
             agent {label 'builder'}
             steps {
                 sh 'cd /home/jenkins/workspace/lesson11/lesson11-boxfuse' 
-                sh 'docker build -t boxfuse-docker:1.0.0 /home/jenkins/workspace/lesson11/lesson11-boxfuse'
+                sh 'sudo docker build -t boxfuse-docker:1.0.0 /home/jenkins/workspace/lesson11/lesson11-boxfuse'
             }
         }
     }
