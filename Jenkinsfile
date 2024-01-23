@@ -5,7 +5,7 @@ pipeline {
 
     stages {
         stage () {
-            {label 'builder'}
+            agent {label 'builder'}
             steps {
                 sh 'mkdir /var/TEST!'
             }
