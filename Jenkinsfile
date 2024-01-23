@@ -22,5 +22,12 @@ pipeline {
                 sh 'sudo docker push 34.118.74.35:8123/boxfuse-docker:1.0.0'
             }
         }
+        stage ('git clone prod') {
+            agent {label 'prod'}
+            steps {
+                sh 'rm -rf /home/jenkins/workspace/lesson11/lesson11-docker-prod'
+                sh 'git clone https://github.com/uladzimirzel/lesson11-docker-prod.git'
+            }
+        }
     }
 }
