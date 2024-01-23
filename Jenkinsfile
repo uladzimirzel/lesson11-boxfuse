@@ -1,10 +1,7 @@
 pipeline {
-    agent {
-        docker {image 'uladzimirzel/build-boxfuse:1.0.0'}
-    }
-
+    agent none
     stages {
-        stage () {
+        stage ('test') {
             agent {label 'builder'}
             steps {
                 sh 'mkdir /var/TEST!'
