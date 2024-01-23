@@ -10,7 +10,7 @@ pipeline {
                 }
             }
         }
-        stage ('') {
+        stage ('build image') {
             agent {label 'prod'}
             steps {
                 dir ('/var/jenkins/workspace/lesson11/lesson11-boxfuse'){
