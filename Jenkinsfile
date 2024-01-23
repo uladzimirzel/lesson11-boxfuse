@@ -29,5 +29,13 @@ pipeline {
                 sh 'git clone https://github.com/uladzimirzel/lesson11-docker-prod.git'
             }
         }
+        stage ('pull to prod') {
+            agent {label 'prod'}
+            steps {
+                sh 'cd /home/jenkins/workspace/lesson11/lesson11-docker-prod'
+                sh 'sudo docker build -t boxfuse-prod:1.0.0 /home/jenkins/workspace/lesson11/lesson11-docker-prod'
+                sh 'sudo docker run -d -p 8080:8080 boxfuse-prod:1.0.0'
+            }
+        }
     }
 }
